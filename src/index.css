@@ -1,0 +1,298 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #07080c;
+  --bg-secondary: #0c0e14;
+  --sidebar-bg: #0b0d13;
+  --sidebar-bg-glass: rgba(11, 13, 19, 0.85);
+  --header-bg: rgba(11, 13, 19, 0.75);
+  --header-bg-glass: rgba(11, 13, 19, 0.65);
+  --surface: #12151f;
+  --surface-hover: #171b28;
+  --surface-secondary: #141722;
+  --input-bg: #0e111a;
+  --border: rgba(255, 255, 255, 0.035);
+  --border-color: rgba(255, 255, 255, 0.035);
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-color: #f1f5f9;
+  --text-muted: #94a3b8;
+  --accent: #00f0ff;
+  --accent-hover: #38bdf8;
+  --accent-secondary: #ec4899;
+  --accent-glow: 0 0 25px rgba(0, 240, 255, 0.25);
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+/* Wallpaper Transparency Rules: surfaces become frosted glass over wallpaper */
+html.has-custom-wallpaper {
+  --bg-primary: transparent !important;
+}
+
+html.has-custom-wallpaper #genzio-main-workspace {
+  background-color: transparent !important;
+}
+
+html.has-custom-wallpaper #main-chat-viewport {
+  background-color: transparent !important;
+}
+
+html.has-custom-wallpaper #genzio-top-header {
+  background-color: var(--header-bg-glass, rgba(14, 16, 23, 0.65)) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+}
+
+html.has-custom-wallpaper #genzio-desktop-sidebar {
+  background-color: var(--sidebar-bg-glass, rgba(14, 16, 23, 0.75)) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+}
+
+html.has-custom-wallpaper #genzio-mobile-drawer {
+  background-color: var(--sidebar-bg-glass, rgba(14, 16, 23, 0.75)) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+}
+
+html.has-custom-wallpaper .chat-viewport-fade-top,
+html.has-custom-wallpaper .chat-viewport-fade-bottom {
+  opacity: 0.15 !important;
+}
+
+/* 3D Perspective and Transform utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.perspective-2000 {
+  perspective: 2000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* Glassmorphic Surfaces */
+.glass-panel {
+  background: rgba(13, 17, 26, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-glow {
+  background: rgba(13, 17, 26, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  box-shadow: 0 0 25px -5px rgba(0, 240, 255, 0.15);
+}
+
+.glass-input {
+  background: rgba(10, 14, 22, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-input:focus {
+  border-color: rgba(0, 240, 255, 0.5);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+}
+
+/* Cyber Grid background */
+.cyber-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.cyber-grid-glow {
+  background-size: 60px 60px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+}
+
+/* Neon Glow Accents - Refined & Crisp */
+.neon-glow-cyan {
+  box-shadow: 0 4px 20px -2px rgba(0, 240, 255, 0.25);
+}
+
+.neon-glow-purple {
+  box-shadow: 0 4px 20px -2px rgba(168, 85, 247, 0.25);
+}
+
+.neon-text-cyan {
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
+}
+
+.neon-border-cyan {
+  border-color: #00f0ff;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+}
+
+/* Premium Animated Neon RGB Rainbow Effect Keyframes */
+@keyframes neonRainbowShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes neonAmbientBreath {
+  0%, 100% {
+    opacity: 0.30;
+    transform: scale(0.995);
+  }
+  50% {
+    opacity: 0.50;
+    transform: scale(1.012);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @keyframes neonRainbowShift {
+    0%, 100% {
+      background-position: 50% 50%;
+    }
+  }
+  @keyframes neonAmbientBreath {
+    0%, 100% {
+      opacity: 0.25;
+      transform: none;
+    }
+  }
+}
+
+/* Subtle, Slow Typewriter Cursor Blink (800-1000ms) */
+@keyframes heroCursorBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.15;
+  }
+}
+
+/* Ensure video logo has zero native browser controls, overlays, or popups */
+video.logo-video::-webkit-media-controls,
+video.logo-video::-webkit-media-controls-start-playback-button,
+video.logo-video::-webkit-media-controls-play-button,
+video.logo-video::-webkit-media-controls-enclosure,
+video.logo-video::-webkit-media-controls-panel {
+  display: none !important;
+  -webkit-appearance: none !important;
+  opacity: 0 !important;
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #07090e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 240, 255, 0.4);
+}
+
+/* ==========================================================================
+   Genzio AI Response Markdown Typography & Clean Visual Hierarchy
+   ========================================================================== */
+.genzio-markdown {
+  word-break: break-word;
+}
+
+/* Tight list item paragraphs: avoid awkward spacing inside lists */
+.genzio-markdown li > p {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Nested List Indentation & Numbering / Bullet Progression */
+.genzio-markdown ul ul,
+.genzio-markdown ol ol,
+.genzio-markdown ul ol,
+.genzio-markdown ol ul {
+  margin-top: 0.35rem;
+  margin-bottom: 0.35rem;
+  padding-left: 1.25rem;
+}
+
+.genzio-markdown ul ul {
+  list-style-type: circle;
+}
+
+.genzio-markdown ul ul ul {
+  list-style-type: square;
+}
+
+.genzio-markdown ol ol {
+  list-style-type: lower-alpha;
+}
+
+.genzio-markdown ol ol ol {
+  list-style-type: lower-roman;
+}
+
+/* Accessibility Modes */
+.genzio-high-contrast {
+  --border-color: #64748b !important;
+  filter: contrast(1.15);
+}
+
+.genzio-high-contrast button,
+.genzio-high-contrast input,
+.genzio-high-contrast select,
+.genzio-high-contrast textarea {
+  border-width: 1.5px !important;
+}
+
+.genzio-reduced-motion,
+.genzio-reduced-motion * {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+.genzio-high-focus *:focus-visible {
+  outline: 2.5px solid #00f0ff !important;
+  outline-offset: 2px !important;
+}
+
+
