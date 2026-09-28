@@ -1,6 +1,6 @@
-import { GenerationOptions, StreamChunk } from '../providers/types';
-import { webSearchService } from './WebSearchService';
-import { calculatorTool } from './CalculatorTool';
+import { GenerationOptions, StreamChunk } from '../providers/types.ts';
+import { webSearchService } from './WebSearchService.ts';
+import { calculatorTool } from './CalculatorTool.ts';
 
 export interface ToolOrchestrationResult {
   modifiedOptions: GenerationOptions;

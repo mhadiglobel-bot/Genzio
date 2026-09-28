@@ -1,5 +1,5 @@
 import { GoogleGenAI } from '@google/genai';
-import { AIProvider, GenerationOptions, StreamChunk, CitationItem } from './types';
+import { AIProvider, GenerationOptions, StreamChunk, CitationItem } from './types.ts';
 
 export class GoogleGeminiProvider implements AIProvider {
   public readonly name = 'Google Gemini';

@@ -1,4 +1,4 @@
 import { app } from '../server/app.ts';
 
-// Vercel function for /api and API route fallback.
+// Route all /api/* requests through the Express app.
 export default app;

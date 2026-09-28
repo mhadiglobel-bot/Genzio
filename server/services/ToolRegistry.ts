@@ -1,4 +1,4 @@
-import { imageGenerationService, ImageGenerationRequest, ImageGenerationResult } from './ImageGenerationService';
+import { imageGenerationService, ImageGenerationRequest, ImageGenerationResult } from './ImageGenerationService.ts';
 
 export interface ToolExecutionResponse {
   success: boolean;

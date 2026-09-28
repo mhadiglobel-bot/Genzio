@@ -1,9 +1,9 @@
-import { GoogleGeminiProvider } from './GoogleGeminiProvider';
-import { OpenAIProvider } from './OpenAIProvider';
-import { OpenRouterProvider } from './OpenRouterProvider';
-import { AIProvider, GenerationOptions, StreamChunk } from './types';
-import { getModelConfig, getCompatibleFallbackSequence, resolveModelAndThinkingLevel, ModelConfig } from '../../src/config/models';
-import { toolOrchestrator } from '../services/ToolOrchestrator';
+import { GoogleGeminiProvider } from './GoogleGeminiProvider.ts';
+import { OpenAIProvider } from './OpenAIProvider.ts';
+import { OpenRouterProvider } from './OpenRouterProvider.ts';
+import { AIProvider, GenerationOptions, StreamChunk } from './types.ts';
+import { getModelConfig, getCompatibleFallbackSequence, resolveModelAndThinkingLevel, ModelConfig } from '../../src/config/models.ts';
+import { toolOrchestrator } from '../services/ToolOrchestrator.ts';
 
 interface ErrorDiagnostic {
   status?: number | string;

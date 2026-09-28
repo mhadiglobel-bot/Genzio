@@ -1,4 +1,4 @@
-import { AIProvider, GenerationOptions, StreamChunk } from './types';
+import { AIProvider, GenerationOptions, StreamChunk } from './types.ts';
 
 /**
  * OpenAI / Compatible Provider abstraction.

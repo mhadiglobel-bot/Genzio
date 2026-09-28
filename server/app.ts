@@ -1,11 +1,11 @@
 import express from 'express';
-import { aiService } from './providers/AIService';
-import { imageGenerationService } from './services/ImageGenerationService';
-import { webSearchService } from './services/WebSearchService';
-import { fileProcessorService } from './services/FileProcessorService';
-import { capabilityRouter } from './services/CapabilityRouter';
-import { toolRegistry } from './services/ToolRegistry';
-import { GENZIO_MODELS, getModelConfig } from '../src/config/models';
+import { aiService } from './providers/AIService.ts';
+import { imageGenerationService } from './services/ImageGenerationService.ts';
+import { webSearchService } from './services/WebSearchService.ts';
+import { fileProcessorService } from './services/FileProcessorService.ts';
+import { capabilityRouter } from './services/CapabilityRouter.ts';
+import { toolRegistry } from './services/ToolRegistry.ts';
+import { GENZIO_MODELS, getModelConfig } from '../src/config/models.ts';
 
 export const app = express();
 

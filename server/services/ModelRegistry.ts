@@ -1,5 +1,5 @@
 import { GoogleGenAI } from '@google/genai';
-import { GENZIO_MODELS, ModelConfig, getModelConfig, resolveModelAndThinkingLevel } from '../../src/config/models';
+import { GENZIO_MODELS, ModelConfig, getModelConfig, resolveModelAndThinkingLevel } from '../../src/config/models.ts';
 
 export interface ModelTestResult {
   modelId: string;

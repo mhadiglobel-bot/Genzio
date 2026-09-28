@@ -1,5 +1,5 @@
-import { AIProvider, GenerationOptions, StreamChunk } from './types';
-import { buildOpenRouterRequest } from '../services/ModelCapabilityRegistry';
+import { AIProvider, GenerationOptions, StreamChunk } from './types.ts';
+import { buildOpenRouterRequest } from '../services/ModelCapabilityRegistry.ts';
 
 /**
  * OpenRouter Provider for Space Bunny Alpha (stealth/space-bunny-alpha) and other OpenRouter models.
