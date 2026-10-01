@@ -1,61 +1,62 @@
-# Genzio AI — Production Web Application
+# AudioStudio Pro
 
-Genzio is a premier AI chat workspace featuring multimodal vision analysis, deep reasoning controls, live web research, document processing, and integrated image generation with a dark neon aesthetic.
+A Vercel-ready Next.js browser audio editor focused on exact timeline-region effects and stereo-safe MP3 export.
 
----
+## Included
+- Waveform timeline with drag selection
+- Non-destructive cut ranges
+- Per-region Gain, Bass, Delay/Echo, Feedback, Wet Mix and Pan
+- Multiple independent effect regions
+- Preview render
+- Stereo MP3 export at 128/192/256/320 kbps
+- Peak protection to reduce clipping from stacked effects
+- Mono-to-stereo duplication during MP3 encoding to prevent one-ear exports
+- SEO metadata
+- Home, Editor, Features, Blog + six guides, Help, About, Contact, Account, Privacy, Terms
+- Responsive dark glass-style UI
 
-## Deploying Genzio to Vercel
+## Deploy to GitHub + Vercel
+1. Unzip the project.
+2. Upload the project contents to the root of your GitHub repository.
+3. Commit changes.
+4. In Vercel, import/redeploy that repository. Framework should be detected as Next.js.
+5. Build command: `npm run build`
+6. Output: use Vercel's normal Next.js defaults. Do not set a custom static output directory.
 
-1. **Push repository to GitHub**:
-   ```bash
-   git add .
-   git commit -m "Production release"
-   git push origin main
-   ```
-
-2. **Import repository into Vercel**:
-   - Go to [Vercel Dashboard](https://vercel.com/new).
-   - Select your Genzio repository.
-   - Vercel automatically detects the Vite frontend and the serverless functions in `/api`.
-
-3. **Configure Environment Variables in Vercel**:
-   Add the following secrets under **Project Settings → Environment Variables**:
-   - `OPENROUTER_API_KEY`: Your OpenRouter API Key (required for `stealth/space-bunny-alpha` and related models).
-   - `OPENROUTER_IMAGE_MODEL`: (Optional) Custom image model identifier (default: `google/gemini-3.1-flash-image`).
-   - `GEMINI_API_KEY`: (Optional) Google Gemini API Key for direct Gemini fallback/services.
-
-4. **Deploy**:
-   - Click **Deploy**.
-   - Vercel builds the static bundle (`dist/`) and deploys the `/api` serverless functions.
-
-5. **Run Production Smoke Tests**:
-   - Open your deployed domain.
-   - Test text streaming and reasoning levels (Low, Medium, High, Extra High, Max).
-   - Test image generation and document/PDF uploads.
-
----
-
-## Local Development & Docker
-
+## Local run
 ```bash
-# Install dependencies
 npm install
-
-# Start development server with Vite HMR
 npm run dev
-
-# Build production bundle
-npm run build
-
-# Start production server
-npm start
 ```
 
----
+## Important production edits
+- Replace `https://example.com` in `app/layout.js` with your real domain.
+- Replace `support@example.com` on Contact, Privacy and Terms pages.
+- Have legal counsel review legal copy for your company and jurisdiction.
+- If you add login, cloud projects, analytics, billing or remote uploads, update Privacy/Terms accordingly.
 
-## Architecture & Security
+## Audio design notes
+The earlier “too loud” symptom is usually clipping caused by stacked gain/EQ/feedback. This build scans the final render and scales peaks below 0.98 only when needed.
 
-- **Server-Side API Security**: All API keys and model calls reside exclusively on backend/serverless routes (`/api/*`). No secrets are ever bundled or exposed to client browsers.
-- **Vercel Serverless Functions**: Native `/api/index.ts` handler managed by Vercel.
-- **Ephemeral Processing**: In-memory buffer processing for uploaded files and images, ensuring 100% compatibility with serverless execution environments.
-- **Client Resilience**: Global React ErrorBoundary, dynamic viewport support (`100dvh`), and streaming fallback handling.
+The “one ear” symptom usually comes from mono/stereo routing or encoding one channel as stereo. This build renders a 2-channel output and duplicates mono source audio into L/R during MP3 encoding.
+
+## Limits of this browser build
+- It is a single-track editor, not a full multitrack DAW.
+- Very large files can exceed browser/device memory.
+- Browser codec support varies for input formats.
+- Effects are rendered client-side, so slower devices may take longer.
+- Reverb, pitch shift, time stretch, noise removal, vocal isolation, undo history, project persistence, multi-track mixing and user accounts are strong Phase 2 additions.
+
+## Recommended Phase 2
+1. Undo/redo edit history
+2. Zoomable timeline and playhead scrubber
+3. Split-at-playhead command
+4. Fade in/out and crossfades
+5. Compressor, limiter, parametric EQ, reverb
+6. Pitch and tempo controls
+7. Noise reduction and vocal isolation via server/worker pipeline
+8. Multi-track lanes
+9. Saved projects and accounts
+10. Cloud storage, share links, waveform thumbnails
+11. PWA/offline support
+12. Structured data, sitemap automation and Search Console integration

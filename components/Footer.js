@@ -1,0 +1,4 @@
+import Link from 'next/link';
+export default function Footer(){
+  return <footer className="footer"><div><div className="brand">AudioStudio<span>Pro</span></div><p>Browser-based audio editing for creators who need precise timeline control without installing heavyweight software.</p></div><div><h4>Product</h4><Link href="/editor">Editor</Link><Link href="/features">Features</Link><Link href="/help">Help Center</Link></div><div><h4>Company</h4><Link href="/about">About</Link><Link href="/contact">Contact</Link><Link href="/account">Account</Link><Link href="/blog">Blog</Link></div><div><h4>Legal</h4><Link href="/privacy">Privacy Policy</Link><Link href="/terms">Terms & Conditions</Link><p className="small">Users remain responsible for rights to uploaded audio. We do not claim ownership of third-party songs, recordings, compositions, or other copyrighted material processed through the editor.</p></div></footer>
+}

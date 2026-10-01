@@ -1,0 +1,3 @@
+import AudioEditor from '../../components/AudioEditor';
+export const metadata={title:'Online Audio Editor',description:'Cut audio and apply echo, delay, bass, gain and pan to exact timeline regions, then export MP3 up to 320 kbps.'};
+export default function Editor(){return <main><section className="page" style={{paddingBottom:0}}><div className="eyebrow">BROWSER AUDIO WORKSTATION</div><h1 className="pageTitle">Precision Audio Editor</h1><p style={{color:'#9ca6bb'}}>Upload locally, select exact seconds, stack effects by region, cut unwanted ranges, preview, and export.</p></section><AudioEditor/></main>}
